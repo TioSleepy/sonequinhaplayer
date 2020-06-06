@@ -1,1 +1,652 @@
-
+{
+  "name": "play",
+  "permissions": "NONE",
+  "restriction": "0",
+  "_id": "ETYbo",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "info": "6",
+      "varName2": "",
+      "iftrue": "2",
+      "iftrueVal": "6",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member"
+    },
+    {
+      "storage": "2",
+      "varName": "ispremium",
+      "comparison": "1",
+      "value": "1",
+      "iftrue": "4",
+      "iftrueVal": "iniciar Script",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Você não tem premium ativo nesse servidor.",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "1",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "anchor_id": "iniciar Script",
+      "color": "#80ff00",
+      "description": "iniciar Script",
+      "name": "Create Anchor"
+    },
+    {
+      "changeType": "0",
+      "value": "\"SUAAPIAQUI\"",
+      "storage": "1",
+      "varName": "api_salva",
+      "name": "Control Variable"
+    },
+    {
+      "title": "Ops!",
+      "author": "${member.displayName}",
+      "color": "#ff4040",
+      "url": "",
+      "authorIcon": "${member.user.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "https://media.discordapp.net/attachments/713854856565096548/713866660427202660/Tio_Soneca_019.png",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed_erro",
+      "name": "Create Embed Message"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "0",
+      "storage": "1",
+      "varName2": "varUser",
+      "name": "Store Member Info"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "storage": "1",
+      "varName2": "bot",
+      "name": "Get Bot as Member"
+    },
+    {
+      "comment": "Checando permissão de se conectar a canais de voz",
+      "color": "#ff8000",
+      "name": "Comment"
+    },
+    {
+      "member": "2",
+      "varName": "bot",
+      "permission": "CONNECT",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Member Permissions"
+    },
+    {
+      "storage": "1",
+      "varName": "embed_erro",
+      "message": "Não Possuo *Permissão* para **Entrar em um canal de Voz**\nSendo assim, fica impossível eu tocar sua música!",
+      "name": "Set Embed Description"
+    },
+    {
+      "description": "Pulando para \"Mensagem de erro\"",
+      "jump_to_anchor": "Mensagem de erro",
+      "color": "#ff8080",
+      "name": "Jump to Anchor"
+    },
+    {
+      "comment": "Checando permissão de falar em canais de voz",
+      "color": "#ff8000",
+      "name": "Comment"
+    },
+    {
+      "member": "2",
+      "varName": "bot",
+      "permission": "SPEAK",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Member Permissions"
+    },
+    {
+      "storage": "1",
+      "varName": "embed_erro",
+      "message": "Não Possuo *Permissão* para **Falar em um canal de Voz**\nSendo assim, fica impossível eu tocar sua música!",
+      "name": "Set Embed Description"
+    },
+    {
+      "description": "Pulando para \"Mensagem de erro\"",
+      "jump_to_anchor": "Mensagem de erro",
+      "color": "#ff8080",
+      "name": "Jump to Anchor"
+    },
+    {
+      "comment": "Checando parametros",
+      "color": "#ff8000",
+      "name": "Comment"
+    },
+    {
+      "condition": "0",
+      "comparison": "2",
+      "value": "0",
+      "iftrue": "0",
+      "iftrueVal": "2",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Parameters"
+    },
+    {
+      "description": "Pulando para \"Existem parametros\"",
+      "jump_to_anchor": "Existem parametros",
+      "color": "#80ffff",
+      "name": "Jump to Anchor"
+    },
+    {
+      "storage": "1",
+      "varName": "embed_erro",
+      "message": "Não consegui processar seu Pedido!\n\nTente: ``!play <palavra chave ou link>``",
+      "name": "Set Embed Description"
+    },
+    {
+      "description": "Pulando para \"Mensagem de erro\"",
+      "jump_to_anchor": "Mensagem de erro",
+      "color": "#ff8080",
+      "name": "Jump to Anchor"
+    },
+    {
+      "anchor_id": "Existem parametros",
+      "color": "#000080",
+      "description": "Existem parametros",
+      "name": "Create Anchor"
+    },
+    {
+      "info": "1",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "escolha",
+      "name": "Store Command Params"
+    },
+    {
+      "storage": "1",
+      "varName": "escolha",
+      "comparison": "5",
+      "value": "\"playlist?list=\"",
+      "iftrue": "4",
+      "iftrueVal": "Procura por Playlists",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "escolha",
+      "comparison": "5",
+      "value": "\"youtu.be\"",
+      "iftrue": "4",
+      "iftrueVal": "Procura por Link",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "escolha",
+      "comparison": "5",
+      "value": "\"youtube.com/watch\"",
+      "iftrue": "2",
+      "iftrueVal": "Procura por Link",
+      "iffalse": "4",
+      "iffalseVal": "Procura por Palavras Chave",
+      "name": "Check Variable"
+    },
+    {
+      "anchor_id": "Procura por Palavras Chave",
+      "color": "#000080",
+      "description": "Procura por Palavras Chave",
+      "name": "Create Anchor"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "4",
+      "varName2": "",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member"
+    },
+    {
+      "storage": "1",
+      "varName": "embed_erro",
+      "message": "Pra ouvir música você tem que se conectar a um canal de voz primeiro!\nVai lá, e quando estiver pronto, use o comando novamente. Eu espero.",
+      "name": "Set Embed Description"
+    },
+    {
+      "description": "Pulando para \"Mensagem de erro\"",
+      "jump_to_anchor": "Mensagem de erro",
+      "color": "#ff8080",
+      "name": "Jump to Anchor"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "name": "Join Voice Channel"
+    },
+    {
+      "type": "0",
+      "input": "${tempVars(\"escolha\")}",
+      "info0": "1",
+      "info1": "1",
+      "apikey": "${tempVars(\"api_salva\")}",
+      "results": "1",
+      "storage": "1",
+      "varName": "varURL",
+      "name": "YouTube Search"
+    },
+    {
+      "type": "0",
+      "input": "${tempVars(\"escolha\")}",
+      "info0": "2",
+      "info1": "1",
+      "apikey": "${tempVars(\"api_salva\")}",
+      "results": "1",
+      "storage": "1",
+      "varName": "varTitulo",
+      "name": "YouTube Search"
+    },
+    {
+      "type": "0",
+      "input": "${tempVars(\"escolha\")}",
+      "info0": "10",
+      "info1": "1",
+      "apikey": "${tempVars(\"api_salva\")}",
+      "results": "1",
+      "storage": "1",
+      "varName": "varThumb",
+      "name": "YouTube Search"
+    },
+    {
+      "type": "0",
+      "input": "${tempVars(\"escolha\")}",
+      "info0": "17",
+      "info1": "1",
+      "apikey": "${tempVars(\"api_salva\")}",
+      "results": "1",
+      "storage": "1",
+      "varName": "varDuração",
+      "name": "YouTube Search"
+    },
+    {
+      "url": "${tempVars(\"varURL\")}",
+      "seek": "0",
+      "volume": "100",
+      "passes": "1",
+      "bitrate": "96",
+      "type": "0",
+      "name": "Play YouTube Video"
+    },
+    {
+      "title": "${tempVars(\"varTitulo\")}",
+      "author": "${member.displayName}",
+      "color": "RANDOM",
+      "url": "${tempVars(\"varURL\")}",
+      "authorIcon": "${msg.author.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "${tempVars(\"varThumb\")}",
+      "timestamp": "true",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed_sucesso",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed_sucesso",
+      "fieldName": "Pedida por:",
+      "message": "${tempVars(\"varUser\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed_sucesso",
+      "fieldName": "Duração:",
+      "message": "**${tempVars(\"varDuração\")}**",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed_sucesso",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "anchor_id": "Procura por Link",
+      "color": "#000080",
+      "description": "Procura por Link",
+      "name": "Create Anchor"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "4",
+      "varName2": "",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member"
+    },
+    {
+      "storage": "1",
+      "varName": "embed_erro",
+      "message": "Pra ouvir música você tem que se conectar a um canal de voz primeiro!\nVai lá, e quando estiver pronto, use o comando novamente. Eu espero.",
+      "name": "Set Embed Description"
+    },
+    {
+      "description": "Pulando para \"Mensagem de erro\"",
+      "jump_to_anchor": "Mensagem de erro",
+      "color": "#ff8080",
+      "name": "Jump to Anchor"
+    },
+    {
+      "behavior": "0",
+      "inputStorage": "1",
+      "inputVarName": "escolha",
+      "theType": "0",
+      "typeVariable": "v=(.*)",
+      "storage": "1",
+      "varName": "varID",
+      "name": "Store Regex Matched Variable"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://www.googleapis.com/youtube/v3/search?part=snippet&q=${tempVars(\"varID\")[1]}&type=video&key=${tempVars(\"api_salva\")}",
+      "path": "items[0].snippet.title",
+      "storage": "1",
+      "varName": "varTitulo",
+      "debugMode": "0",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "token": "",
+      "user": "",
+      "pass": "",
+      "url": "https://www.googleapis.com/youtube/v3/search?part=snippet&q=${tempVars(\"varID\")}&type=video&key=${tempVars(\"api_salva\")}",
+      "path": "items[0].snippet.thumbnails.high.url",
+      "storage": "1",
+      "varName": "varThumb",
+      "debugMode": "0",
+      "headers": "",
+      "name": "Store Json From WebAPI"
+    },
+    {
+      "type": "0",
+      "input": "${tempVars(\"varID\")}",
+      "info0": "17",
+      "info1": "1",
+      "apikey": "${tempVars(\"api_salva\")}",
+      "results": "1",
+      "storage": "1",
+      "varName": "varDuracao",
+      "name": "YouTube Search"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "name": "Join Voice Channel"
+    },
+    {
+      "url": "${tempVars(\"escolha\")}",
+      "seek": "0",
+      "volume": "100",
+      "passes": "1",
+      "bitrate": "96",
+      "type": "0",
+      "name": "Play YouTube Video"
+    },
+    {
+      "title": "${tempVars(\"varTitulo\")}",
+      "author": "${member.displayName}",
+      "color": "RANDOM",
+      "url": "${tempVars(\"escolha\")}",
+      "authorIcon": "${msg.author.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "${tempVars(\"varThumb\")}",
+      "timestamp": "true",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed_sucesso",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed_sucesso",
+      "fieldName": "Pedida por:",
+      "message": "${tempVars(\"varUser\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed_sucesso",
+      "fieldName": "Duração:",
+      "message": "**${tempVars(\"varDuracao\")}**",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed_sucesso",
+      "fieldName": "Música:",
+      "message": "[${tempVars(\"varTitulo\")}](${tempVars(\"escolha\")})",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed_sucesso",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "anchor_id": "Procura por Playlists",
+      "color": "#000080",
+      "description": "Procura por Playlists",
+      "name": "Create Anchor"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "4",
+      "varName2": "",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check If Member"
+    },
+    {
+      "storage": "1",
+      "varName": "embed_erro",
+      "message": "Pra ouvir música você tem que se conectar a um canal de voz primeiro!\nVai lá, e quando estiver pronto, use o comando novamente. Eu espero.",
+      "name": "Set Embed Description"
+    },
+    {
+      "description": "Pulando para \"Mensagem de erro\"",
+      "jump_to_anchor": "Mensagem de erro",
+      "color": "#ff8080",
+      "name": "Jump to Anchor"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "name": "Join Voice Channel"
+    },
+    {
+      "url": "${tempVars(\"escolha\")}",
+      "apikey": "${tempVars(\"api_salva\")}",
+      "seek": "0",
+      "volume": "",
+      "passes": "1",
+      "bitrate": "",
+      "name": "Play YouTube Playlist"
+    },
+    {
+      "type": "1",
+      "input": "${tempVars(\"escolha\")}",
+      "info0": "2",
+      "info1": "2",
+      "apikey": "${tempVars(\"api_salva\")}",
+      "results": "1",
+      "storage": "1",
+      "varName": "varTitulo",
+      "name": "YouTube Search"
+    },
+    {
+      "type": "1",
+      "input": "${tempVars(\"escolha\")}",
+      "info0": "12",
+      "info1": "10",
+      "apikey": "${tempVars(\"api_salva\")}",
+      "results": "1",
+      "storage": "1",
+      "varName": "varThumb",
+      "name": "YouTube Search"
+    },
+    {
+      "title": "",
+      "author": "${member.displayName}",
+      "color": "RANDOM",
+      "url": "",
+      "authorIcon": "${msg.author.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "${tempVars(\"varThumb\")}",
+      "timestamp": "true",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed_sucesso",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed_sucesso",
+      "fieldName": "Pedida por:",
+      "message": "${tempVars(\"varUser\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed_sucesso",
+      "fieldName": "Playlist:",
+      "message": "[${tempVars(\"varTitulo\")}](${tempVars(\"escolha\")})",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed_sucesso",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "anchor_id": "Mensagem de erro",
+      "color": "#400000",
+      "description": "Mensagem de erro",
+      "name": "Create Anchor"
+    },
+    {
+      "storage": "1",
+      "varName": "embed_erro",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    }
+  ],
+  "_aliases": [
+    "tocar",
+    "p"
+  ]
+}
