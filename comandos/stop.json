@@ -1,0 +1,130 @@
+{
+  "name": "stop",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "TlpRf",
+  "actions": [
+    {
+      "server": "0",
+      "info": "1",
+      "storage": "1",
+      "varName": "is playing",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "storage": "1",
+      "varName": "is playing",
+      "comparison": "1",
+      "value": "true",
+      "iftrue": "4",
+      "iftrueVal": "Se está tocando",
+      "iffalse": "4",
+      "iffalseVal": "Se não está tocando",
+      "name": "Check Variable"
+    },
+    {
+      "anchor_id": "Se não está tocando",
+      "color": "#400000",
+      "description": "Se não está tocando",
+      "name": "Create Anchor"
+    },
+    {
+      "title": "",
+      "author": "${member.displayName}",
+      "color": "#0083e1",
+      "url": "",
+      "authorIcon": "${member.user.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "https://media.discordapp.net/attachments/713854856565096548/713866659169042442/Tio_Soneca_018.png",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed não está tocando",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed não está tocando",
+      "message": "Na verdade, eu já não estou tocando nada no momento. Continuarei assim!",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed não está tocando",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "anchor_id": "Se está tocando",
+      "color": "#004000",
+      "description": "Se está tocando",
+      "name": "Create Anchor"
+    },
+    {
+      "action": "0",
+      "name": "Control Audio"
+    },
+    {
+      "title": "Pausar",
+      "author": "${member.displayName}",
+      "color": "#00e84d",
+      "url": "",
+      "authorIcon": "${member.user.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "https://media.discordapp.net/attachments/713854856565096548/713866667805114378/Tio_Soneca_023.png",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed pausa",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed pausa",
+      "message": "Parei a música!",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed pausa",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    }
+  ],
+  "_aliases": [
+    "pausa",
+    "pausar"
+  ]
+}
