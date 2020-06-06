@@ -1,0 +1,219 @@
+{
+  "name": "playlist",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "vqlFM",
+  "actions": [
+    {
+      "title": "Playlist",
+      "author": "${member.displayName}",
+      "color": "#0083e1",
+      "url": "",
+      "authorIcon": "${member.user.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "https://media.discordapp.net/attachments/713854856565096548/713866661740150854/Tio_Soneca_020.png",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed playlist",
+      "name": "Create Embed Message"
+    },
+    {
+      "server": "0",
+      "info": "1",
+      "storage": "1",
+      "varName": "is Playing",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "storage": "1",
+      "varName": "is Playing",
+      "comparison": "1",
+      "value": "true",
+      "iftrue": "4",
+      "iftrueVal": "Se está tocando",
+      "iffalse": "4",
+      "iffalseVal": "Checando Playlist",
+      "name": "Check Variable"
+    },
+    {
+      "anchor_id": "Se está tocando",
+      "color": "#004000",
+      "description": "Se está tocando",
+      "name": "Create Anchor"
+    },
+    {
+      "server": "0",
+      "info": "9",
+      "storage": "1",
+      "varName": "current song url",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "server": "0",
+      "info": "13",
+      "storage": "1",
+      "varName": "current song title",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "server": "0",
+      "info": "14",
+      "storage": "1",
+      "varName": "current song duration",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "storage": "1",
+      "varName": "embed playlist",
+      "fieldName": "Tocando agora",
+      "message": "[${tempVars(\"current song title\")}](${tempVars(\"current song url\")})",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "anchor_id": "Checando Playlist",
+      "color": "#ff8000",
+      "description": "Checando Playlist",
+      "name": "Create Anchor"
+    },
+    {
+      "server": "0",
+      "info": "5",
+      "storage": "1",
+      "varName": "queue length",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "storage": "1",
+      "varName": "queue length",
+      "comparison": "14",
+      "value": "1",
+      "iftrue": "4",
+      "iftrueVal": "Com queue",
+      "iffalse": "4",
+      "iffalseVal": "Sem queue",
+      "name": "Check Variable"
+    },
+    {
+      "anchor_id": "Com queue",
+      "color": "#004000",
+      "description": "Com queue",
+      "name": "Create Anchor"
+    },
+    {
+      "storage": "1",
+      "varName": "queue formatada",
+      "name": "Create List"
+    },
+    {
+      "server": "0",
+      "info": "3",
+      "storage": "1",
+      "varName": "queue url list",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "source": "BzNRh",
+      "list": "7",
+      "varName": "queue url list",
+      "tempVarName": "url",
+      "type": "true",
+      "name": "Loop Through List"
+    },
+    {
+      "storage": "1",
+      "varName": "embed playlist",
+      "fieldName": "Próximas músicas",
+      "message": "${tempVars(\"queue formatada\")}",
+      "inline": "1",
+      "name": "Add Embed Field"
+    },
+    {
+      "description": "Pulando para \"Enviando mensagem\"",
+      "jump_to_anchor": "Enviando mensagem",
+      "color": "#80ffff",
+      "name": "Jump to Anchor"
+    },
+    {
+      "anchor_id": "Sem queue",
+      "color": "#400000",
+      "description": "Sem queue",
+      "name": "Create Anchor"
+    },
+    {
+      "storage": "1",
+      "varName": "is Playing",
+      "comparison": "1",
+      "value": "true",
+      "iftrue": "4",
+      "iftrueVal": "Enviando mensagem",
+      "iffalse": "0",
+      "iffalseVal": "Checando Playlist",
+      "name": "Check Variable"
+    },
+    {
+      "title": "Playlist vazia",
+      "author": "${member.displayName}",
+      "color": "#0083e1",
+      "url": "",
+      "authorIcon": "${member.user.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "https://media.discordapp.net/attachments/713854856565096548/713866659169042442/Tio_Soneca_018.png",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed playlist",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed playlist",
+      "message": "Eu não estou tocando nada, e a playlist está vazia.\nQue tal colocar algo pra tocar?\nUse o comando `${this.getDBM().Files.data.settings.tag}play` para pedir uma música!",
+      "name": "Set Embed Description"
+    },
+    {
+      "anchor_id": "Enviando mensagem",
+      "color": "#000080",
+      "description": "Enviando mensagem",
+      "name": "Create Anchor"
+    },
+    {
+      "storage": "1",
+      "varName": "embed playlist",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    }
+  ],
+  "_aliases": [
+    "queue"
+  ]
+}
