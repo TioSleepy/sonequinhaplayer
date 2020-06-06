@@ -1,0 +1,149 @@
+{
+  "name": "limparqueue",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "qKPYP",
+  "actions": [
+    {
+      "server": "0",
+      "info": "5",
+      "storage": "1",
+      "varName": "queue length",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "storage": "1",
+      "varName": "queue length",
+      "comparison": "14",
+      "value": "1",
+      "iftrue": "4",
+      "iftrueVal": "queue existe",
+      "iffalse": "4",
+      "iffalseVal": "queue não existe",
+      "name": "Check Variable"
+    },
+    {
+      "anchor_id": "queue existe",
+      "color": "#004000",
+      "description": "queue existe",
+      "name": "Create Anchor"
+    },
+    {
+      "name": "Clear Queue"
+    },
+    {
+      "title": "Queue limpa!",
+      "author": "${member.displayName}",
+      "color": "#00e84d",
+      "url": "",
+      "authorIcon": "${member.user.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "queue length",
+      "comparison": "1",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "Só tinha uma música na sequencia. Agora não tem mais.",
+      "name": "Set Embed Description"
+    },
+    {
+      "count": "1",
+      "name": "Skip Actions"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "${tempVars(\"queue length\")} músicas removidas da playlist.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "anchor_id": "queue não existe",
+      "color": "#400000",
+      "description": "queue não existe",
+      "name": "Create Anchor"
+    },
+    {
+      "title": "Queue limpa!",
+      "author": "${member.displayName}",
+      "color": "#00e84d",
+      "url": "",
+      "authorIcon": "${member.user.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "Na verdade, ela já estava limpa. Mas agora ela está super limpa! Brilhando!!",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    }
+  ],
+  "_aliases": [
+    "limparplaylist"
+  ]
+}
