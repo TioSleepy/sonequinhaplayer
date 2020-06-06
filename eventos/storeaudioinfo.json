@@ -1,0 +1,41 @@
+{
+  "name": "store audio info",
+  "temp": "",
+  "event-type": "0",
+  "_id": "BzNRh",
+  "actions": [
+    {
+      "storage": "1",
+      "varName": "queue formatada",
+      "comparison": "9",
+      "value": " 7",
+      "iftrue": "3",
+      "iftrueVal": "3",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "video": "${tempVars(\"url\")}",
+      "info": "2",
+      "storage": "1",
+      "varName": "title",
+      "name": "Store YouTube Info"
+    },
+    {
+      "video": "${tempVars(\"url\")}",
+      "info": "12",
+      "storage": "1",
+      "varName": "duration",
+      "name": "Store YouTube Info"
+    },
+    {
+      "storage": "1",
+      "varName": "queue formatada",
+      "addType": "0",
+      "position": "",
+      "value": "`\\n[${tempVars(\"title\")}](${tempVars(\"url\")}) - ${tempVars(\"duration\")}`",
+      "name": "Add Item to List"
+    }
+  ]
+}
