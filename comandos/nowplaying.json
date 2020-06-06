@@ -1,0 +1,172 @@
+{
+  "name": "nowplaying",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "cZIXe",
+  "actions": [
+    {
+      "server": "0",
+      "info": "1",
+      "storage": "1",
+      "varName": "is playing",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "storage": "1",
+      "varName": "is playing",
+      "comparison": "1",
+      "value": "true",
+      "iftrue": "4",
+      "iftrueVal": "está tocando",
+      "iffalse": "4",
+      "iffalseVal": "não está tocando",
+      "name": "Check Variable"
+    },
+    {
+      "anchor_id": "está tocando",
+      "color": "#004000",
+      "description": "está tocando",
+      "name": "Create Anchor"
+    },
+    {
+      "server": "0",
+      "info": "9",
+      "storage": "1",
+      "varName": "url",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "server": "0",
+      "info": "11",
+      "storage": "1",
+      "varName": "requester",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "server": "0",
+      "info": "13",
+      "storage": "1",
+      "varName": "titulo",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "server": "0",
+      "info": "14",
+      "storage": "1",
+      "varName": "duração",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "server": "0",
+      "info": "15",
+      "storage": "1",
+      "varName": "thumbnail",
+      "varName2": "",
+      "name": "Store Audio Info"
+    },
+    {
+      "title": "${tempVars(\"titulo\")}",
+      "author": "${member.displayName}",
+      "color": "RANDOM",
+      "url": "${tempVars(\"url\")}",
+      "authorIcon": "${member.user.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "${tempVars(\"thumbnail\")}",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "Solicitada por",
+      "message": "${tempVars(\"requester\")}",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "fieldName": "Duração",
+      "message": "**${tempVars(\"duração\")}**",
+      "inline": "0",
+      "name": "Add Embed Field"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "anchor_id": "não está tocando",
+      "color": "#400000",
+      "description": "não está tocando",
+      "name": "Create Anchor"
+    },
+    {
+      "title": "Não estou tocando nada!",
+      "author": "${member.displayName}",
+      "color": "#0083e1",
+      "url": "",
+      "authorIcon": "${member.user.displayAvatarURL}",
+      "authorUrl": "",
+      "imageUrl": "",
+      "thumbUrl": "https://media.discordapp.net/attachments/713854856565096548/713866659169042442/Tio_Soneca_018.png",
+      "timestamp": "false",
+      "debug": "false",
+      "text": "",
+      "year": "",
+      "month": "",
+      "day": "",
+      "hour": "",
+      "minute": "",
+      "second": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "Use o comando `${this.getDBM().Files.data.settings.tag}play` pra tocar músicas!",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "0",
+      "varName2": "",
+      "storage3": "0",
+      "varName3": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "messageContent": "",
+      "name": "Send Embed Message"
+    }
+  ]
+}
